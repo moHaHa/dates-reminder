@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TodayFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Today's List" />
+        android:layout_height="110dp">
+
+        <TextView
+            android:text="Todey's Notes"
+            android:paddingTop="150px"
+            android:textSize="30sp"
+            android:textFontWeight="500"
+            android:layout_width="match_parent"
+            android:textColor="@color/blue_blood"
+            android:layout_height="match_parent"></TextView>
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="60dp"
+            android:layout_height="match_parent">
+
+            <!--recycler view for displaying all notes-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_todayNotes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="82dp"
+                android:paddingTop="24dp"
+                />
+
+        </RelativeLayout>
 
 </FrameLayout>

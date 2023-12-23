@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     openFragment(new AllFragment());
                     return true;
                 }   else if(itemId == R.id.button_postponed) {
-                    openFragment(new AllFragment());
+                    openFragment(new PostponedFragment());
                     return true;
                 }   else if(itemId == R.id.button_settings) {
                     openFragment(new SettingsFragment());
