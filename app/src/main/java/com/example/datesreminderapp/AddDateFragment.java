@@ -26,6 +26,7 @@ public class AddDateFragment extends Fragment {
 
     private Button btnDate;
     private Button btnTime;
+    private Button btnReminder;
     String timeStorage;
 
     public AddDateFragment() {
@@ -95,6 +96,19 @@ public class AddDateFragment extends Fragment {
         }, hour, minute, false);
         timePickerDialog.show();
     }
+    private void handleSelectReminder() {                                                                     //this method performs the time picker task
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), R.style.DatePickerTheme,  new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                timeStorage = i + ":" + i1;                                                        //temp variable to store the time to set alarm
+                btnReminder.setText(formatTimeHelper(i, i1));                                                //sets the button text as selected time
+            }
+        }, hour, minute, false);
+        timePickerDialog.show();
+    }
 
 
     @Override
@@ -103,7 +117,7 @@ public class AddDateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_date, container, false);
         btnDate =  view.findViewById(R.id.btn_date);                                             //assigned all the material reference to get and set data
         btnTime =  view.findViewById(R.id.btn_time);
-
+        btnReminder = view.findViewById(R.id.btn_reminder);
 
 
         btnDate.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +131,13 @@ public class AddDateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 handleSelectTime();
+
+            }
+        });
+        btnReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleSelectReminder();
 
             }
         });
