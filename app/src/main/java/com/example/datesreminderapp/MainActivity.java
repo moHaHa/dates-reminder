@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this , "Go To Add New", Toast.LENGTH_SHORT).show();
+                openFragment(new AddDateFragment());
+
             }
         });
     }
