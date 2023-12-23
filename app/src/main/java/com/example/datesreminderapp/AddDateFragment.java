@@ -35,16 +35,16 @@ public class AddDateFragment extends Fragment {
 
     private EditText et_noteTitle;
     private EditText et_noteDescription;
-    private EditText et_noteDate;
+    private String store_noteDate;
 
-    private EditText et_noteTime;
+    private String store_noteTime;
     private EditText et_noteAgentName;
 
     private EditText et_noteAgentNumber;
 
     private EditText et_noteDependencyName;
 
-    private EditText et_noteReminder;
+    private String store_noteReminder;
 
 
 
@@ -99,7 +99,8 @@ public class AddDateFragment extends Fragment {
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), R.style.DatePickerTheme,  new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                btnDate.setText(day + "-" + (month + 1) + "-" + year);                             //sets the selected date as test for button
+                btnDate.setText(day + "-" + (month + 1) + "-" + year);
+                store_noteDate = day + "-" + (month + 1) + "-" + year;
             }
         }, year, month, day);
         datePickerDialog.show();
@@ -113,6 +114,7 @@ public class AddDateFragment extends Fragment {
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
                 timeStorage = i + ":" + i1;                                                        //temp variable to store the time to set alarm
                 btnTime.setText(formatTimeHelper(i, i1));                                                //sets the button text as selected time
+                store_noteTime = formatTimeHelper(i, i1);
             }
         }, hour, minute, false);
         timePickerDialog.show();
@@ -126,6 +128,7 @@ public class AddDateFragment extends Fragment {
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
                 timeStorage = i + ":" + i1;                                                        //temp variable to store the time to set alarm
                 btnReminder.setText(formatTimeHelper(i, i1));                                                //sets the button text as selected time
+                store_noteReminder = formatTimeHelper(i, i1);
             }
         }, hour, minute, false);
         timePickerDialog.show();
@@ -180,10 +183,10 @@ public class AddDateFragment extends Fragment {
                     String agentName = et_noteAgentName.getText().toString();
                     String agentNumber = et_noteAgentNumber.getText().toString();
                     String dependencyName = et_noteDependencyName.getText().toString();
-                    String time = btnTime.toString();
+                    String time = store_noteTime;
 
-                    String date = btnDate.toString();
-                    String reminder = btnReminder.toString();
+                    String date = store_noteDate;
+                    String reminder = store_noteReminder;
                     boolean isUpdated = false;
                     String status = "todo";
 
