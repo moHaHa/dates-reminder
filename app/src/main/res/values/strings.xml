@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dates Reminder</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Open Navigation close</string>
+</resources>
