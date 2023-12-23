@@ -53,7 +53,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_saveAgent"
+            android:id="@+id/btn_saveNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
@@ -138,7 +138,7 @@
 
             android:layout_marginTop="16dp"
             android:text="Set Riminder"
-            app:layout_constraintBottom_toTopOf="@+id/btn_saveAgent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_saveNote"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_dependencyName" />

@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.example.datesreminderapp.models.Agent;
+import com.example.datesreminderapp.models.Note;
 
 import java.util.Calendar;
 
@@ -27,6 +31,23 @@ public class AddDateFragment extends Fragment {
     private Button btnDate;
     private Button btnTime;
     private Button btnReminder;
+    private Button btnSaveNote;
+
+    private EditText et_noteTitle;
+    private EditText et_noteDescription;
+    private EditText et_noteDate;
+
+    private EditText et_noteTime;
+    private EditText et_noteAgentName;
+
+    private EditText et_noteAgentNumber;
+
+    private EditText et_noteDependencyName;
+
+    private EditText et_noteReminder;
+
+
+
     String timeStorage;
 
     public AddDateFragment() {
@@ -118,6 +139,14 @@ public class AddDateFragment extends Fragment {
         btnDate =  view.findViewById(R.id.btn_date);                                             //assigned all the material reference to get and set data
         btnTime =  view.findViewById(R.id.btn_time);
         btnReminder = view.findViewById(R.id.btn_reminder);
+        btnSaveNote = view.findViewById(R.id.btn_saveNote);
+
+        et_noteTitle = view.findViewById(R.id.et_noteTitle);
+        et_noteDescription   = view.findViewById(R.id.et_noteDescription);
+        // TODO : get time and date from the buttons
+        et_noteAgentName   = view.findViewById(R.id.et_agentName);
+        et_noteAgentNumber   = view.findViewById(R.id.et_agentNumber);
+        et_noteDependencyName   = view.findViewById(R.id.et_dependencyName);
 
 
         btnDate.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +168,38 @@ public class AddDateFragment extends Fragment {
             public void onClick(View v) {
                 handleSelectReminder();
 
+            }
+        });
+
+        btnSaveNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    String title = et_noteTitle.getText().toString();
+                    String description = et_noteDescription.getText().toString();
+                    String agentName = et_noteAgentName.getText().toString();
+                    String agentNumber = et_noteAgentNumber.getText().toString();
+                    String dependencyName = et_noteDependencyName.getText().toString();
+                    String time = btnTime.toString();
+
+                    String date = btnDate.toString();
+                    String reminder = btnReminder.toString();
+                    boolean isUpdated = false;
+                    String status = "todo";
+
+                    Note note = new Note(-1, title , description, date , time , reminder , agentName , agentNumber , dependencyName , isUpdated , status);
+                    DatabaseHelper2 dbHelper = new DatabaseHelper2(getActivity());
+                    boolean insertSuccessful = dbHelper.insertNote(note);
+
+                    if (insertSuccessful) {
+                        Toast.makeText(getActivity(), "Note added successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Failed to add note", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+
+                    Toast.makeText(getActivity(), "An error occurred", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
