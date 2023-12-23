@@ -6,7 +6,7 @@
     android:layout_height="176dp"
     android:gravity="top"
     android:padding="16dp"
-    android:background="@color/white"
+    android:background="@color/bg"
 
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
