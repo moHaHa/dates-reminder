@@ -8,27 +8,27 @@
         android:checkableBehavior="single"
         >
         <item android:id="@+id/nav_agents"
-            android:icon="@drawable/baseline_home_24"
+            android:icon="@drawable/teenyiconsusersoutline"
 
             android:title="Agents"
             ></item>
         <item android:id="@+id/nav_add_agent"
-            android:icon="@drawable/baseline_home_24"
+            android:icon="@drawable/teenyiconsuserplusoutline"
 
             android:title="Add Agent"
             ></item>
         <item android:id="@+id/nav_dependencies"
-            android:icon="@drawable/baseline_home_24"
+            android:icon="@drawable/cibuilding03"
 
             android:title="Dependencies"
             ></item>
         <item android:id="@+id/nav_add_dependency"
-            android:icon="@drawable/baseline_home_24"
+            android:icon="@drawable/tablercubeplus"
 
             android:title="Add Dependency"
             ></item>
         <item android:id="@+id/nav_report"
-            android:icon="@drawable/baseline_home_24"
+            android:icon="@drawable/cifiledocument"
 
             android:title="Report"
             ></item>

@@ -4,13 +4,13 @@
         android:id="@+id/button_today"
         android:title="Today"
 
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/solardocumentsminimalisticbroken" />
 
 
     <item
         android:id="@+id/button_all"
         android:title="All Dates"
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/cillist" />
 
     <item android:title="" android:enabled="true">
 
@@ -19,9 +19,9 @@
 
         android:id="@+id/button_postponed"
         android:title="Postponed Dates"
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/mynauiclocksquare" />
     <item
         android:id="@+id/button_settings"
         android:title="Settings"
-        android:icon="@drawable/baseline_home_24" />
+        android:icon="@drawable/ionsettingsoutline" />
 </menu>
